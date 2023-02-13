@@ -6,8 +6,17 @@ body {
   text-align: center;
 }
 
+img {
+  padding: 40px;
+}
 
 a {
   color: #00B7FF;
 
+}
+
+button {
+  color: #355E3B;
+  background-color: blanchedalmond;
+  font-size: 15px;
 }

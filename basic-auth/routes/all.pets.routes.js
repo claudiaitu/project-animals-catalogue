@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Pet = require("../models/pet.model");
 const { isOwner } = require("../middleware/route-guard")
 
+const fileUploader = require('../config/cloudinary.config');
+
 router.get('/', (req, res, next) => {
     Pet.find()
     .then((allPet) => {

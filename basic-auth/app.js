@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
 const session = require('express-session'); 
-const fileUpload = require('express-fileupload');
 
 const MongoStore = require('connect-mongo');
 
@@ -27,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+
 
 app.use(
   session({
@@ -50,13 +49,7 @@ app.use(
   })
 );
 
-app.post('/upload', (req, res) => {
-  // Log the files to the console
-  console.log(req.files);
 
-  // All good
-  res.sendStatus(200);
-});
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);

@@ -8,6 +8,7 @@ const petSchema = new Schema(
     species: String,
     feeding: String,
     environment: String,
+    imageUrl: String,
     owner: {type: Schema.Types.ObjectId, ref: "User"}
   },
   {

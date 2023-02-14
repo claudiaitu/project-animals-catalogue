@@ -5,5 +5,9 @@
     <h3>{{species}}</h3>
     <h3>{{feeding}}</h3>
     <h3>{{environment}}</h3>
-    <a href="/allPets/allPet/{{_id}}/edit">Edit</a> 
+    <a href="/allPets/allPet/{{_id}}/edit"><button>Edit</button></a> 
+
+    <form action="/allPets/allPet/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
 {{/each}}

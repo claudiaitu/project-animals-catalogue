@@ -30,6 +30,15 @@ router.get('/allPet/:petId/edit', (req, res, next) => {
       .catch(error => next(error));
   });
 
+
+  router.post('/allPet/:petId/delete', (req, res, next) => {
+    const { petId } = req.params;
+   
+    Pet.findByIdAndDelete(petId)
+      .then(() => res.redirect('/allPets'))
+      .catch(error => next(error));
+  });
+
 // router.post('/all-pets', (req, res, next) => {
 //     All.find()
 //     .then((allPet) => {

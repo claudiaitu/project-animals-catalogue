@@ -18,7 +18,7 @@ router.post('/add-pet', (req, res, next) => {
         species: req.body.species, 
         feeding: req.body.feeding,
         environment: req.body.environment,
-        
+        owner: req.session.user._id
     })
     .then((createdPet) => {
         console.log(createdPet)

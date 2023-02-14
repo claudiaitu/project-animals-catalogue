@@ -20,3 +20,7 @@ button {
   background-color: blanchedalmond;
   font-size: 15px;
 }
+
+nav {
+  text-align: right;
+}

@@ -72,5 +72,15 @@ router.get('/userProfile', isLoggedIn, (req, res, next) => {
   res.render('login/user-profile.hbs', {user})
 })
 
+router.get('/logout', isLoggedIn, (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect('/');
+    }
+  })
+})
+
 
 module.exports = router;

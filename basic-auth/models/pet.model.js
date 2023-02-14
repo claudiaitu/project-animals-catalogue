@@ -2,16 +2,17 @@
 
 const { Schema, model } = require('mongoose');
 
-const addSchema = new Schema(
+const petSchema = new Schema(
   {
     name: String,
     species: String,
     feeding: String,
     environment: String,
+    owner: {type: Schema.Types.ObjectId, ref: "User"}
   },
   {
     timestamps: true
   }
 );
 
-module.exports = model('Add', addSchema);
+module.exports = model('Pet', petSchema);

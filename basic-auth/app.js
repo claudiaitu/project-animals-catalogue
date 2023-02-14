@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
 const session = require('express-session'); 
+const fileUpload = require('express-fileupload');
 
 const MongoStore = require('connect-mongo');
 
@@ -12,6 +13,7 @@ const MongoStore = require('connect-mongo');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login.routes');
 var addRouter = require('./routes/add.routes')
+var allRouter = require('./routes/all.pets.routes')
 
 
 var app = express();
@@ -25,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use(
   session({
@@ -35,7 +38,7 @@ app.use(
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
-      maxAge: 60000 // 60 * 1000 ms === 1 min
+      maxAge: 600000 // 60 * 1000 ms === 1 min
     },
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI
@@ -47,9 +50,19 @@ app.use(
   })
 );
 
+app.post('/upload', (req, res) => {
+  // Log the files to the console
+  console.log(req.files);
+
+  // All good
+  res.sendStatus(200);
+});
+
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/addPets', addRouter)
+app.use('/addPets', addRouter);
+app.use('/allPets', allRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

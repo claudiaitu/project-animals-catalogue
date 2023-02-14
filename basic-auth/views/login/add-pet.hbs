@@ -1,6 +1,6 @@
 <h2>Add a Pet</h2>
 
-<form action="/login/add-pet" method="post">
+<form action="/addPets/add-pet" method="post" enctype="multipart/form-data">
   <label> Name:
     <input type="text" name="name" />
   </label>
@@ -13,9 +13,17 @@
     <input type="text" name="feeding" />
   </label>
 
-<label> Environment:
+  <label> Environment:
     <input type="text" name="environment" />
   </label>
+
+    <label for="">Add Image</label>
+    <input type="file" name="image" />
+    {{!-- <button type="submit">Upload</button> --}}
+ 
+  
+
+
 
 
 

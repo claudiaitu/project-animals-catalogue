@@ -17,7 +17,9 @@ router.post('/add-pet', fileUploader.single('imageUrl'), (req, res, next) => {
    console.log("made it to line 17")
     console.log(req.body, req.file)
     Pet.create({
+        description: req.body.description,
         name: req.body.name,
+        age: req.body.age,
         species: req.body.species, 
         feeding: req.body.feeding,
         environment: req.body.environment,

@@ -27,9 +27,9 @@ router.get('/allPet/:petId/edit', isOwner, (req, res, next) => {
 
   router.post('/allPet/:petId/edit', isOwner, (req, res, next) => {
     const { petId } = req.params;
-    const { name, species, feeding, environment } = req.body;
+    const { description, name, age, species, breed, feeding, environment } = req.body;
    
-    Pet.findByIdAndUpdate(petId, { name, species, feeding, environment }, { new: true })
+    Pet.findByIdAndUpdate(petId, { description, name, age, species, breed, feeding, environment }, { new: true })
       .then(updatedPet => res.redirect(`/allPet/${updatedPet.id}`)) // go to the details page to see the updates
       .catch(error => next(error));
   });

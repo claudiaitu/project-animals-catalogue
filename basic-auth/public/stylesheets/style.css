@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 17px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #355E3B;
-  color: white;
+  color: blanchedalmond;
   text-align: center;
 }
 
@@ -11,16 +11,21 @@ img {
 }
 
 a {
-  color: #00B7FF;
+  color: blanchedalmond;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
 
 }
 
 button {
   color: #355E3B;
-  background-color: blanchedalmond;
+  background-color: #ba8759 ;
   font-size: 15px;
 }
 
 nav {
   text-align: right;
+  color: #8b4513;
+  text-decoration: none;
 }

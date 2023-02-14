@@ -11,6 +11,25 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.get('/allPet/:petId/edit', (req, res, next) => {
+    const { petID } = req.params;
+   
+    Pet.findById(petID)
+      .then(petToEdit => {
+        res.render('login/pet-edit.hbs', { Pet: petToEdit }); // <-- add this line
+    })
+      .catch(error => next(error));
+  });
+
+  router.post('/allPet/:petId/edit', (req, res, next) => {
+    const { petId } = req.params;
+    const { name, species, feeding, environment } = req.body;
+   
+    Pet.findByIdAndUpdate(petId, { name, species, feeding, environment }, { new: true })
+      .then(updatedPet => res.redirect(`/allPet/${updatedPet.id}`)) // go to the details page to see the updates
+      .catch(error => next(error));
+  });
+
 // router.post('/all-pets', (req, res, next) => {
 //     All.find()
 //     .then((allPet) => {

@@ -1,0 +1,26 @@
+{{!-- views/books/books-edit.hbs --}}
+
+<h2>Edit your Pet: {{Pet.title}}</h2>
+
+<form action="/addPets/add-pet" method="post" enctype="multipart/form-data">
+  <label> Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label> Species:
+    <input type="text" name="species" />
+  </label>
+
+  <label> Feeding:
+    <input type="text" name="feeding" />
+  </label>
+
+  <label> Environment:
+    <input type="text" name="environment" />
+  </label>
+
+    <label for="">Add Image</label>
+    <input type="file" name="image" />
+
+  <button>Save changes</button>
+</form>

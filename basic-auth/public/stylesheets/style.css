@@ -33,11 +33,31 @@ button {
   box-shadow: 5px 5px 10px 2px grey;
 }
 
+.welcomeButton {
+  border-color: #845007;
+  background-color: #F5DEB3;
+}
+
 nav {
   text-align: right;
   color: #8b4513;
   text-decoration: none;
   font-size: 28px;
+  
+}
+
+.landingPage {
+  border: solid;
+  padding: 6px;
+  border-radius: 8px;
+  border-color: #845007;
+}
+
+nav a {
+  border: solid;
+  padding: 6px;
+  border-radius: 8px;
+  border-color: #845007;
 }
 
 .allMyPets {
@@ -64,6 +84,7 @@ nav {
   border-color: #845007;
   border-width: 6px;
   width: 550px;
+  margin: auto;
 }
 
 .singlePet button {

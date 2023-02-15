@@ -1,13 +1,13 @@
 {{#if user}}
   <h2>Welcome, {{ user.username }}!</h2>
-  <p>This is your profile page!!</p>
-  <button>
+  <p>Choose an option below!</p>
+  <button class="welcomeButton">
     <a href="/login/userProfile">Reload the page</a>
   </button>
-  <button>
+  <button class="welcomeButton">
     <a href="/allPets">View all pets</a>
   </button>
-  <button>
+  <button class="welcomeButton">
     <a href="/addPets/add-pet">Add a pet!</a>
   </button>
 {{else}}

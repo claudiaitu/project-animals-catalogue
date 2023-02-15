@@ -1,9 +1,14 @@
 body {
   padding: 50px;
-  font: 17px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #355E3B;
-  color: blanchedalmond;
+  font: 22px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #c9af98;
+  color: #3a4660;
   text-align: center;
+}
+
+body h2 {
+  text-decoration: #FDF5E6 underline overline;
+  text-decoration-style: wavy;
 }
 
 img {
@@ -11,23 +16,26 @@ img {
 }
 
 a {
-  color: blanchedalmond;
-  text-decoration: none;
+  color: #3a4660;
+  text-decoration: underline;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
 
 }
 
 button {
-  color: #355E3B;
-  background-color: #ba8759 ;
+  color: #845007;
+  background-color:  #FDF5E6;
   font-size: 15px;
+  font-weight: bold;
+  box-shadow: 5px 5px 10px 2px grey;
 }
 
 nav {
   text-align: right;
   color: #8b4513;
   text-decoration: none;
+  font-size: 28px;
 }
 
 .allMyPets {
@@ -45,9 +53,27 @@ nav {
 .singlePet h3 {
   font-size: 15px;
   padding: 10px;
+  color: #3a4660;
+
 }
 
 .petInfo {
-  border: 2px solid #ba8759;
+  border: double;
+  border-color: #845007;
+  border-width: 6px;
 }
 
+.singlePet button {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.singlePet img {
+  border-style: double;
+  border-width: 8px;
+  border-radius: 8px;
+}
+
+p {
+  font-weight: bold;
+}

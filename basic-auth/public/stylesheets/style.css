@@ -29,3 +29,25 @@ nav {
   color: #8b4513;
   text-decoration: none;
 }
+
+.allMyPets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.singlePet {
+  flex-grow: 1;
+  width: 30%;
+  height: 100%;
+  margin: 28px;
+}
+
+.singlePet h3 {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.petInfo {
+  border: 2px solid #ba8759;
+}
+

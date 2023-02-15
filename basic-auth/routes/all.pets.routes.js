@@ -14,23 +14,27 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.get('/allPet/:petId/edit', isOwner, (req, res, next) => {
-    const { petID } = req.params;
+router.get('/edit/:petId', isOwner, (req, res, next) => {
+    const { petId } = req.params;
    
-    Pet.findById(petID)
+    Pet.findById(petId)
       .then(petToEdit => {
-        res.render('login/pet-edit.hbs', { Pet: petToEdit }); // <-- add this line
+        console.log(petToEdit, "pet")
+        res.render('login/pet-edit.hbs', petToEdit); // <-- add this line
 
     })
       .catch(error => next(error));
   });
 
-  router.post('/allPet/:petId/edit', isOwner, (req, res, next) => {
+  router.post('/edit/:petId', isOwner, (req, res, next) => {
     const { petId } = req.params;
     const { description, name, age, species, breed, feeding, environment } = req.body;
-   
+    console.log(req.body, description)
     Pet.findByIdAndUpdate(petId, { description, name, age, species, breed, feeding, environment }, { new: true })
-      .then(updatedPet => res.redirect(`/allPet/${updatedPet.id}`)) // go to the details page to see the updates
+      
+    .then(updatedPet => 
+        { console.log(updatedPet, "my updated PET")
+            res.redirect(`/allPets`)})
       .catch(error => next(error));
   });
 

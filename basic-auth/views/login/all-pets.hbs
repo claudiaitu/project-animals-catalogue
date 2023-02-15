@@ -1,18 +1,30 @@
 <h2>All Animals</h2>
 
+<div class="allMyPets">
 {{#each allPet}}
-    <h3>{{description}}</h3>
-    <h3>{{name}}</h3>
-    <h3>{{age}}</h3>
-    <h3>{{species}}</h3>
-    <h3>{{breed}}</h3>
-    <h3>{{feeding}}</h3>
-    <h3>{{environment}}</h3>
-    <a href="/allPets/allPet/{{_id}}/edit"><button>Edit</button></a> 
+<div class="singlePet">
+    <img src="{{imageUrl}}" alt="no image">
+    <div class="petInfo">
+    <h3>Description: {{description}}</h3>
+    <h3>Name: {{name}}</h3>
+    <h3>Age: {{age}}</h3>
+    <h3>Species: {{species}}</h3>
+    <h3>Breed: {{breed}}</h3>
+    <h3>Feeding: {{feeding}}</h3>
+    <h3>Environment: {{environment}}</h3>
+    </div>
+    <a href="/allPets/edit/{{_id}}"><button>Edit</button></a> 
 
     <form action="/allPets/allPet/{{_id}}/delete" method="POST">
       <button>Delete</button>
     </form>
-    <img src="{{imageUrl}}" alt="no image">
-
+</div>
 {{/each}}
+</div>
+
+<p>If you are interested in adopting any of our adorable friends, <br>
+    please contact: Claudia Maria <br>
+    She will direct you to the owner of your possible new best friend! <br>
+    Phone Number: 305-999-9999 <br>
+    Email: claud@claudy.com
+</p>

@@ -6,8 +6,9 @@ const petSchema = new Schema(
   {
     description: String,
     name: String,
-    age: Number,
+    age: String,
     species: String,
+    breed: String,
     feeding: String,
     environment: String,
     imageUrl: String,

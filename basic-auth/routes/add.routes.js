@@ -21,6 +21,7 @@ router.post('/add-pet', fileUploader.single('imageUrl'), (req, res, next) => {
         name: req.body.name,
         age: req.body.age,
         species: req.body.species, 
+        breed: req.body.breed,
         feeding: req.body.feeding,
         environment: req.body.environment,
         imageUrl: req.file.path,

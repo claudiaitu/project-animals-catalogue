@@ -12,7 +12,7 @@ body h2 {
 }
 
 img {
-  padding: 40px;
+  padding: 30px;
 }
 
 
@@ -63,6 +63,7 @@ nav {
   border: double;
   border-color: #845007;
   border-width: 6px;
+  width: 550px;
 }
 
 .singlePet button {
@@ -74,6 +75,8 @@ nav {
   border-style: double;
   border-width: 8px;
   border-radius: 8px;
+  height: 30vh;
+  object-fit: cover
 }
 
 p {

@@ -26,16 +26,58 @@ router.get('/edit/:petId', isOwner, (req, res, next) => {
       .catch(error => next(error));
   });
 
-  router.post('/edit/:petId', isOwner, (req, res, next) => {
+//   router.post('/edit/:petId', isOwner, fileUploader.single('imageUrl'), (req, res, next) => {
+//     const { petId } = req.params;
+//     const { description, name, age, species, breed, feeding, environment } = req.body;
+//     console.log(req.body, description)
+//     Pet.findByIdAndUpdate(petId, { description, name, age, species, breed, feeding, environment }, { new: true })
+      
+//     .then(updatedPet => 
+//         { console.log(updatedPet, "my updated PET")
+//             res.redirect(`/allPets`)})
+//       .catch(error => {
+//         console.log("line 39", error)
+//       });
+//   });
+
+router.post('/edit/:petId', isOwner, fileUploader.single('imageUrl'), (req, res, next) => {
     const { petId } = req.params;
     const { description, name, age, species, breed, feeding, environment } = req.body;
-    console.log(req.body, description)
-    Pet.findByIdAndUpdate(petId, { description, name, age, species, breed, feeding, environment }, { new: true })
-      
-    .then(updatedPet => 
-        { console.log(updatedPet, "my updated PET")
-            res.redirect(`/allPets`)})
-      .catch(error => next(error));
+
+    if (!req.file) {
+
+        Pet.findByIdAndUpdate(petId, { description, name, age, species, breed, feeding, environment }, { new: true })
+          
+        .then(updatedPet => 
+            { console.log(updatedPet, "my updated PET")
+                res.redirect(`/allPets`)})
+          .catch(error => {
+            console.log("line 39", error)
+          });
+    } else {
+        console.log("made it to line 58")
+        Pet.findByIdAndUpdate(petId, 
+            { 
+                description, 
+                name, 
+                age, 
+                species, 
+                breed, 
+                feeding,
+                imageUrl: req.file.path, 
+                environment 
+            }, 
+                { new: true }
+                )
+          
+        .then(updatedPet => 
+            { console.log(updatedPet, "my updated PET")
+                res.redirect(`/allPets`)})
+          .catch(error => {
+            console.log("line 39", error)
+          });
+    }
+
   });
 
 

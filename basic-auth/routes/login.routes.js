@@ -17,6 +17,7 @@ router.get('/', isLoggedOut, (req, res, next) => {
 router.post('/',isLoggedOut, (req, res, next) => {
   const {username, password} = req.body;
 
+
   bcryptjs
   .genSalt(saltRounds)
   .then((salt) => {

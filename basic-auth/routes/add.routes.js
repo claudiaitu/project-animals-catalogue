@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Pet = require("../models/pet.model");
-const { render } = require("../app");
 
 const fileUploader = require('../config/cloudinary.config');
 

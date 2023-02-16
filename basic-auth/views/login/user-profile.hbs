@@ -8,8 +8,28 @@
     <a href="/allPets">View all pets</a>
   </button>
   <button class="welcomeButton">
-    <a href="/addPets/add-pet">Add a pet!</a>
+    <a href="/addPets/add-pet">Add a pet!</a> 
   </button>
 {{else}}
   <p>Still no logged in user, sorry!</p>
 {{/if}}
+{{#each foundPets}}
+<div class="singlePet">
+<br>
+<img src="{{imageUrl}}" alt="no image">
+<div class="petInfo">
+<p>Name: {{_doc.name}}</p>
+<p>Age: {{age}}</p>
+<p>Species: {{species}}</p>
+<p>Breed: {{breed}}</p>
+<p>Feeding: {{feeding}}</p>
+<p>Environment: {{environment}}</p>
+</div>
+</div>
+ <a href="/allPets/edit/{{_id}}"><button>Edit</button></a> 
+
+    <form action="/allPets/allPet/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+{{/each}}
+

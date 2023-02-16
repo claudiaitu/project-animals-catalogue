@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const Pet = require("../models/pet.model");
 
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
@@ -70,7 +71,14 @@ router.post('/userLogin',isLoggedOut, (req, res, next) => {
 
 router.get('/userProfile', isLoggedIn, (req, res, next) => {
   const user = req.session.user;
-  res.render('login/user-profile.hbs', {user})
+  Pet.find({owner: req.session.user._id})
+  .then((foundPets) => {
+    console.log(foundPets)
+    res.render('login/user-profile.hbs', {user: user, foundPets: foundPets})
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 })
 
 router.get('/logout', isLoggedIn, (req, res, next) => {

@@ -1,23 +1,25 @@
 <h2>All Animals</h2>
 
 <div class="allMyPets">
-{{#each allPet}}
+{{#each nowPets}}
 <div class="singlePet">
-    <img src="{{imageUrl}}" alt="no image">
+    <img src="{{_doc.imageUrl}}" alt="no image">
     <div class="petInfo">
-    <h3>Description: {{description}}</h3>
-    <h3>Name: {{name}}</h3>
-    <h3>Age: {{age}}</h3>
-    <h3>Species: {{species}}</h3>
-    <h3>Breed: {{breed}}</h3>
-    <h3>Feeding: {{feeding}}</h3>
-    <h3>Environment: {{environment}}</h3>
+    <h3>Description: {{_doc.description}}</h3>
+    <h3>Name: {{_doc.name}}</h3>
+    <h3>Age: {{_doc.age}}</h3>
+    <h3>Species: {{_doc.species}}</h3>
+    <h3>Breed: {{_doc.breed}}</h3>
+    <h3>Feeding: {{_doc.feeding}}</h3>
+    <h3>Environment: {{_doc.environment}}</h3>
     </div>
+    {{#if button}}
     <a href="/allPets/edit/{{_id}}"><button>Edit</button></a> 
 
     <form action="/allPets/allPet/{{_id}}/delete" method="POST">
       <button>Delete</button>
     </form>
+    {{/if}}
 </div>
 {{/each}}
 </div>
@@ -26,5 +28,5 @@
     please contact: Claudia Maria <br>
     She will direct you to the owner of your possible new best friend! <br>
     Phone Number: 305-999-9999 <br>
-    Email: claud@claudy.com
+    Email: claud@adoptapet.com
 </p>

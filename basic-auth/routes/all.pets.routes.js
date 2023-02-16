@@ -4,10 +4,35 @@ const { isOwner } = require("../middleware/route-guard")
 
 const fileUploader = require('../config/cloudinary.config');
 
+// router.get('/', (req, res, next) => {
+//   console.log(req.session.user)
+//     Pet.find()
+//     .then((allPet) => {
+//       console.log(allPet);
+//         res.render('login/all-pets.hbs', {allPet: allPet, sessionId: req.session.user._id})
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// })
+
 router.get('/', (req, res, next) => {
+  console.log(req.session.user)
     Pet.find()
     .then((allPet) => {
-        res.render('login/all-pets.hbs', {allPet})
+      // let nowPets = allPet.map((pet) => {
+
+      //         return pet
+      //     })
+      let nowPets = allPet.map((pet) => {
+          if (pet.owner.toString() === req.session.user._id) {
+              return {...pet, button: true}
+          } else {
+            return {...pet, button: false}
+          }
+      })
+      console.log("NOW PETS", req.session.user._id, nowPets)
+        res.render('login/all-pets.hbs', {nowPets})
     })
     .catch((err) => {
         console.log(err);
